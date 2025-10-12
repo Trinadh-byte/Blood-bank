@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mysql
+  namespace: varma
 spec:
   serviceName: "mysql"
   replicas: 1
@@ -15,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: shaikmustafa/clientapp:dbimage
+        image: trinadhvarma/bloodbank/dbimage
         ports:
         - containerPort: 80
           name: web
@@ -23,7 +24,7 @@ spec:
         - name: www
           mountPath: /usr/share/nginx/html
       imagePullSecrets:
-            - name: mysecret
+            - name: dockerhub-secret
   volumeClaimTemplates:
   - metadata:
       name: www
