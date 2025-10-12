@@ -16,11 +16,11 @@ spec:
     spec:
       containers:
       - name: mysqldb
-        image: shaikmustafa/clientapp:appimage
+        image: trinadhvarma/bloodbank/appimage
         ports:
         - containerPort: 80
         env:
             - name: DB_HOST
               value: mysqldb
       imagePullSecrets:
-            - name: mysecret
+            - name: dockerhub-secret
