@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mysql
-  namespace: varma
+  
 spec:
   serviceName: "mysql"
   replicas: 1
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: trinadhvarma/bloodbank:dbimage
+        image: trinadhvarma/clientapp:dbimage
         ports:
         - containerPort: 80
           name: web
